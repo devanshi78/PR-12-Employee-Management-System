@@ -6,8 +6,6 @@ import router from "./router/index.js"
 import cookieParser from "cookie-parser";
 import adminRouter from "./router/admin.route.js";
 
-import TaskModel from "./models/task.model.js";
-
 const app = express();
 const port = dotenv.PORT || 3000;
 
@@ -19,15 +17,6 @@ app.set('view engine','ejs');
 
 app.use('/api',router);
 app.use('/',adminRouter);
-
-app.get('/check-tasks', async (req, res) => {
-    try {
-        const tasks = await TaskModel.find();
-        res.json(tasks);  // Will show all tasks in DB
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
 
 app.listen(port,(error) => {
     if(!error){

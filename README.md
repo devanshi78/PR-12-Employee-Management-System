@@ -111,7 +111,7 @@ PR-12-EMPLOYEE-MANAGEMENT-SYSTEM
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/employee-management-system.git
+git clone https://github.com/devanshi78/PR-12-Employee-Management-System
 cd employee-management-system
 ```
 
@@ -196,6 +196,13 @@ Password: ********
 ## 👩‍💻 Author
 
 **Devanshi Parekh**
+
+---
+
+## 🌍 Live Demo
+
+🔗 Project Live URL:  
+https://pr-12-employee-management-system.onrender.com
 
 ---
 
