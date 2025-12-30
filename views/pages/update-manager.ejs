@@ -1,0 +1,101 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="content">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card-box">
+                <h4 class="mb-4">Add Manager</h4>
+
+                <!-- Error Message -->
+                <% if (typeof error !== 'undefined') { %>
+                    <div class="alert alert-danger">
+                        <%= error %>
+                    </div>
+                <% } %>
+
+                <form method="post" action="/update/<%= data._id %>">
+                    <div class="row g-3">
+
+                        <div class="col-md-12">
+                            <label class="form-label">Name</label>
+                            <input 
+                                name="name" 
+                                type="text" 
+                                class="form-control" 
+                                placeholder="Enter name"
+                                value="<%= data.name %>"
+                                required
+                            >
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Email</label>
+                            <input 
+                                name="email" 
+                                type="email" 
+                                class="form-control" 
+                                placeholder="Enter email"
+                                value="<%= data.email %>"
+                                required
+                            >
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Password</label>
+                            <input 
+                                name="password" 
+                                type="password" 
+                                class="form-control" 
+                                placeholder="Enter password"
+                                required
+                            >
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Department</label>
+                            <input 
+                                name="department" 
+                                type="text" 
+                                class="form-control" 
+                                placeholder="Enter department"
+                                value="<%= data.department %>"
+                                required
+                            >
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Salary</label>
+                            <input 
+                                name="salary" 
+                                type="number" 
+                                class="form-control" 
+                                placeholder="Enter salary"
+                                value="<%= data.salary %>"
+                                required
+                            >
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Role</label>
+                            <select name="role" class="form-select" required>
+                                <option value="">--- Select Role ---</option>
+                                <option value="manager" selected>Manager</option>
+                                <option value="employee">Employee</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12 text-end mt-4">
+                            <!-- <button type="reset" class="btn btn-light">Reset</button> -->
+                            <button type="submit" class="btn btn-primary px-4">
+                                Update Manager
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

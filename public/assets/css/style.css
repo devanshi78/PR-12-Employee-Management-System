@@ -1,0 +1,130 @@
+/* ===== Root Variables ===== */
+:root {
+    --primary: #6366f1;
+    --dark: #0f172a;
+    --light: #f8fafc;
+    --gray: #64748b;
+}
+
+/* ===== Global ===== */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--light);
+}
+
+/* ===== Layout ===== */
+.wrapper {
+    display: flex;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+    background: var(--dark);
+    padding: 25px 15px;
+}
+
+.sidebar h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    color: #cbd5f5;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+
+.sidebar a i {
+    margin-right: 10px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* ===== Submenu ===== */
+.submenu {
+    margin-top: 6px;
+}
+
+.sidebar .submenu a {
+    color: #f1f5ff !important;
+    background: transparent;
+    display: block;
+    padding: 10px 16px 10px 52px;
+    border-radius: 8px;
+    font-size: 13px;
+    opacity: 1 !important;
+}
+
+.sidebar .submenu a:hover {
+    background: rgba(99, 102, 241, 0.25);
+    color: #ffffff !important;
+}
+
+.sidebar .submenu a.active {
+    background: rgba(99, 102, 241, 0.45);
+    color: #ffffff !important;
+}
+
+.collapse.show {
+    margin-bottom: 8px;
+}
+
+/* ===== Main Section ===== */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Header ===== */
+.header {
+    height: 70px;
+    background: #fff;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Content ===== */
+.content {
+    padding: 30px;
+    flex: 1;
+}
+
+/* ===== Card Box (used everywhere) ===== */
+.card-box {
+    background: #fff;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== Tables ===== */
+table th {
+    font-weight: 600;
+}
+
+/* ===== Footer ===== */
+.footer {
+    background: #fff;
+    padding: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--gray);
+    border-top: 1px solid #e5e7eb;
+}

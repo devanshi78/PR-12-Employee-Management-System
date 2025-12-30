@@ -1,0 +1,98 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="content">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card-box">
+                <h4 class="mb-4">Update Task</h4>
+
+                <!-- Error Message -->
+                <% if (typeof error !== 'undefined') { %>
+                    <div class="alert alert-danger">
+                        <%= error %>
+                    </div>
+                <% } %>
+
+                <form method="post" action="/api/update-task/<%= data._id %>">
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+                            <label class="form-label">Task Title</label>
+                            <input 
+                                name="title" 
+                                type="text" 
+                                class="form-control" 
+                                value="<%= data.title %>" 
+                                placeholder="Enter task title" 
+                                required
+                            >
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Assigned To</label>
+                            <select class="form-select" name="assignedTo" required>
+                                <% employees.forEach(emp => { %>
+                                    <option 
+                                        value="<%= emp._id %>" 
+                                        <%= emp._id.toString() === data.assignedTo.toString() ? 'selected' : '' %>
+                                    >
+                                        <%= emp.name %>
+                                    </option>
+                                <% }) %>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Priority</label>
+                            <select class="form-select" name="priority" required>
+                                <option value="High" <%= data.priority === 'High' ? 'selected' : '' %>>High</option>
+                                <option value="Medium" <%= data.priority === 'Medium' ? 'selected' : '' %>>Medium</option>
+                                <option value="Low" <%= data.priority === 'Low' ? 'selected' : '' %>>Low</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Status</label>
+                            <select class="form-select" name="status" required>
+                                <option value="pending" <%= data.status === 'pending' ? 'selected' : '' %>>Pending</option>
+                                <option value="in-progress" <%= data.status === 'in-progress' ? 'selected' : '' %>>In Progress</option>
+                                <option value="completed" <%= data.status === 'completed' ? 'selected' : '' %>>Completed</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Due Date</label>
+                            <input 
+                                type="date" 
+                                name="dueDate" 
+                                class="form-control" 
+                                value="<%= data.dueDate.toISOString().split('T')[0] %>" 
+                                required
+                            >
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label">Task Description</label>
+                            <textarea 
+                                class="form-control" 
+                                name="description" 
+                                rows="4" 
+                                placeholder="Enter task details"
+                                required
+                            ><%= data.description %></textarea>
+                        </div>
+
+                        <div class="col-12 text-end mt-4">
+                            <button type="submit" class="btn btn-primary px-4">
+                                Update Task
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

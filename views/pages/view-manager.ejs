@@ -1,0 +1,58 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="content">
+
+    <div class="card-box">
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4>Managers List</h4>
+            <a href="/managers/add" class="btn btn-primary">
+                <i class="bi bi-plus-lg"></i> Add Manager
+            </a>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% data.forEach((value,index) => { 
+                        const {_id,name,email,department,role} = value;
+                        if(role == "manager"){
+                    %>
+                        <tr>
+                            <td><%= index + 1 %></td>
+                            <td><%= name %></td>
+                            <td><%= email %></td>
+                            <td><%= role %></td>
+                            <td>
+                                <span class="badge bg-success">Active</span>
+                            </td>
+                            <td class="text-end">
+                                <a href="/update/<%= _id %>" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a href="/delete/<%= _id %>" class="btn btn-sm btn-outline-danger">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <% }}) %>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+<%- include('../partials/footer.ejs') %>
