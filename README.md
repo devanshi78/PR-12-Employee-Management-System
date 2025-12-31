@@ -149,7 +149,7 @@ http://localhost:8081
 
 ```
 Email: admin@example.com
-Password: ********
+Password: 1234
 ```
 
 *(Change according to your database records)*
