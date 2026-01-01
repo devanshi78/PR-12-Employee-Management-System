@@ -1,7 +1,26 @@
 import axiosInstance from "../configs/axiosInstance.js";
+import Usermodel from "../models/user.model.js";
+import TaskModel from "../models/task.model.js";
 
-export const dashboard = (req, res) => {
-    return res.render('index.ejs');
+export const dashboard = async(req, res) => {
+    try {
+        const totalManager = await Usermodel.countDocuments({role : "manager"});
+        const totalEmployee = await Usermodel.countDocuments({role : "employee"});
+        const totalTask = await TaskModel.countDocuments();
+
+        return res.render("index.ejs",{
+            totalManager,
+            totalEmployee,
+            totalTask
+        })
+    } catch (error) {
+        console.log(error.message);
+        return res.render("index.ejs", {
+            totalManagers: 0,
+            totalEmployees: 0,
+            totalTasks: 0
+        });
+    }
 }
 
 export const addManagerPage = (req, res) => {

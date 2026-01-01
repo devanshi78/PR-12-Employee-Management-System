@@ -13,6 +13,18 @@ export const createUser = async(req,res) => {
     }
 }
 
+export const getAllEmployees = async (req, res) => {
+    try {
+        const employees = await Usermodel.find({ role: 'employee' });
+        return res.json({
+            success: true,
+            data: employees
+        });
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+};
+
 export const getAllUser = async(req,res) => {
     try {
         let data = await Usermodel.find({});
