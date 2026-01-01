@@ -148,7 +148,7 @@ http://localhost:8081
 ## 🧪 Default Admin Login (Example)
 
 ```
-Email: admin@example.com
+Email: admin@gmail.com
 Password: 1234
 ```
 
