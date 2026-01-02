@@ -1,66 +1,40 @@
 <%- include('../partials/header.ejs') %>
-        <!-- ===== CONTENT ===== -->
-        <div class="content">
 
-            <div class="row g-4">
+<div class="content">
+    <div class="row g-4">
 
-                <!-- Profile Card -->
-                <div class="col-md-4">
-                    <div class="card-box text-center">
-                        <img src=""
-                             class="rounded-circle mb-3"
-                             alt="Profile">
-                        <h2 class="text-muted mb-2">Admin</h2>
-
-                        <span class="badge bg-success mb-3">Active</span>
-
-                        <div class="d-grid mt-3">
-                            <button class="btn btn-outline-primary">
-                                <i class="bi bi-pencil"></i> Edit Profile
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Profile Details -->
-                <div class="col-md-8">
-                    <div class="card-box">
-                        <h5 class="mb-4">Profile Information</h5>
-
-                        <div class="row mb-3">
-                            <div class="col-sm-4 text-muted">Full Name</div>
-                            <div class="col-sm-8 fw-medium"></div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-sm-4 text-muted">Email</div>
-                            <div class="col-sm-8 fw-medium"></div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-sm-4 text-muted">Phone</div>
-                            <div class="col-sm-8 fw-medium"></div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-sm-4 text-muted">Role</div>
-                            <div class="col-sm-8 fw-medium"></div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-sm-4 text-muted">Department</div>
-                            <div class="col-sm-8 fw-medium"></div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-sm-4 text-muted">Joined On</div>
-                            <div class="col-sm-8 fw-medium"></div>
-                        </div>
-
-                    </div>
-                </div>
-
+        <!-- Profile Card -->
+        <div class="col-md-4">
+            <div class="card-box text-center">
+                <img src="/images/default-profile.png" class="rounded-circle mb-3" alt="Profile">
+                <h2 class="text-muted mb-2"><%= user.name %></h2>
+                <span class="badge bg-success mb-3">Active</span>
             </div>
-
         </div>
+
+        <!-- Profile Details -->
+        <div class="col-md-8">
+            <div class="card-box">
+                <h5 class="mb-4">Profile Information</h5>
+
+                <div class="row mb-3">
+                    <div class="col-sm-4 text-muted">Full Name</div>
+                    <div class="col-sm-8 fw-medium"><%= user.name %></div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-4 text-muted">Email</div>
+                    <div class="col-sm-8 fw-medium"><%= user.email %></div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-4 text-muted">Role</div>
+                    <div class="col-sm-8 fw-medium"><%= user.role %></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 <%- include('../partials/footer.ejs') %>

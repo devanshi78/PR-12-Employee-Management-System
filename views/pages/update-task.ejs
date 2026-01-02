@@ -31,10 +31,12 @@
                         <div class="col-md-6">
                             <label class="form-label">Assigned To</label>
                             <select class="form-select" name="assignedTo" required>
+                                <option value="">-- Select Employee --</option>
+
                                 <% employees.forEach(emp => { %>
                                     <option 
-                                        value="<%= emp._id %>" 
-                                        <%= emp._id.toString() === data.assignedTo.toString() ? 'selected' : '' %>
+                                        value="<%= emp._id %>"
+                                        <%= (data.assignedTo && emp._id.toString() === data.assignedTo.toString()) ? 'selected' : '' %>
                                     >
                                         <%= emp.name %>
                                     </option>

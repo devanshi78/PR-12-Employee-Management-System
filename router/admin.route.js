@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addEmployeePage, addManager, addManagerPage, dashboard, deleteManager, login, loginPage, logout, myProfilePage, updateManager, updateManagerPage, viewManagerPage } from "../controllers/admin.controller.js";
+import { addEmployeePage, addManager, addManagerPage, changePassword, changePasswordPage, dashboard, deleteManager, login, loginPage, logout, myProfilePage, updateManager, updateManagerPage, viewManagerPage } from "../controllers/admin.controller.js";
 import userAuth from "../middlewares/userAuth.middleware.js";
 import checkUserRole from "../middlewares/userRole.middleware.js";
 
@@ -22,5 +22,7 @@ adminRouter.get('/update/:id',checkUserRole,updateManagerPage);
 adminRouter.post('/update/:id',checkUserRole,updateManager);
 adminRouter.get('/delete/:id',checkUserRole,deleteManager);
 adminRouter.get('/view-manager',checkUserRole,viewManagerPage);
+adminRouter.get('/change-password',checkUserRole, changePasswordPage);
+adminRouter.post('/change-password',checkUserRole, changePassword);
 
 export default adminRouter;
