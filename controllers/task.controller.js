@@ -1,7 +1,6 @@
 import EmployeeModel from "../models/employee.model.js";
 import TaskModel from "../models/task.model.js";
 
-/* ================= ADD TASK PAGE ================= */
 export const addTaskPage = async (req, res) => {
     try {
         const employees = await EmployeeModel.find({ role: "employee" });
@@ -17,7 +16,6 @@ export const addTaskPage = async (req, res) => {
     }
 };
 
-/* ================= ADD TASK ================= */
 export const addTask = async (req, res) => {
     try {
         const { title, description, assignedTo, status, dueDate, priority } = req.body;
@@ -41,7 +39,6 @@ export const addTask = async (req, res) => {
     }
 };
 
-/* ================= VIEW TASK ================= */
 export const viewTaskPage = async (req, res) => {
     try {
         const tasks = await TaskModel
@@ -59,7 +56,6 @@ export const viewTaskPage = async (req, res) => {
     }
 };
 
-/* ================= DELETE TASK ================= */
 export const deleteTask = async (req, res) => {
     try {
         const { id } = req.params;
@@ -74,7 +70,6 @@ export const deleteTask = async (req, res) => {
     }
 };
 
-/* ================= UPDATE TASK PAGE ================= */
 export const updateTaskPage = async (req, res) => {
     try {
         const { id } = req.params;
@@ -95,7 +90,6 @@ export const updateTaskPage = async (req, res) => {
     }
 };
 
-/* ================= UPDATE TASK ================= */
 export const updateTask = async (req, res) => {
     try {
         const { id } = req.params;
